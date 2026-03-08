@@ -1,0 +1,39 @@
+# .check_translations.toml
+# Place this anywhere — the script walks up from cwd to find it.
+# Recommended: project root, or the checker's own directory.
+# CLI flags always take priority over values set here.
+
+[check_translations]
+
+# Absolute or relative path to the frontend project root.
+# The script will scan <project>/src by default.
+project = "~/Desktop/benehr-web-app"
+
+# Path to the exported dictionary CSV (required — no default).
+csv = "~/Desktop/dictionary.csv"
+
+# Override the scanned subdirectory if your src lives elsewhere.
+# If omitted, defaults to <project>/src
+# src = "/home/ahmad/Desktop/benehr-web-app/src"
+
+# File extensions to include in the scan.
+extensions = [".ts", ".tsx", ".js", ".jsx"]
+
+# Output format: "txt", "md", or "html"
+format = "html"
+
+# Where to save the report. Parent directories are created automatically.
+# Remove this line to print to stdout instead.
+out = "/home/ahmad/Desktop/translation-report.html"
+
+# Where to write the SQL INSERT file for missing keys.
+# Remove this line to skip SQL generation.
+sql_out = "/home/ahmad/Desktop/missing_translations.sql"
+
+# Set to true to auto-translate German values via Google Translate.
+# Requires: pip install deep-translator
+# If false or omitted, German translations will be written as "TODO: <key>".
+translate = false
+
+# Show file:line locations for each missing key in the report.
+show_occurrences = true
